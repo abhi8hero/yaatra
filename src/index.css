@@ -1,0 +1,177 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Montserrat font */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://resource-static.bj.bcebos.com/fonts/Montserrat-VariableFont_wght.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Yaatra – Minimal Design System */
+
+@layer base {
+  :root {
+    --radius: 0.375rem;
+
+    /* Light mode – Minimal palette */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 11%;
+
+    /* Saffron/amber – India's signal color */
+    --primary: 33 95% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 97%;
+    --secondary-foreground: 220 13% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 42%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 13% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 33 95% 44%;
+
+    /* Status tokens */
+    --success: 142 72% 29%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    /* Charts */
+    --chart-1: 33 95% 44%;
+    --chart-2: 142 72% 29%;
+    --chart-3: 217 91% 60%;
+    --chart-4: 270 60% 55%;
+    --chart-5: 0 72% 51%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 220 13% 11%;
+    --sidebar-primary: 33 95% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 13% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 33 95% 44%;
+
+    /* Shadows – minimal */
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.08);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(33,95%,44%) 0%, hsl(28,90%,38%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220,14%,98%) 0%, hsl(0,0%,100%) 100%);
+    --gradient-background: linear-gradient(180deg, hsl(0,0%,100%) 0%, hsl(220,14%,97%) 100%);
+  }
+
+  .dark {
+    --background: 220 15% 9%;
+    --foreground: 220 14% 93%;
+
+    --card: 220 15% 11%;
+    --card-foreground: 220 14% 93%;
+
+    --popover: 220 15% 11%;
+    --popover-foreground: 220 14% 93%;
+
+    --primary: 33 90% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 220 14% 93%;
+
+    --muted: 220 14% 16%;
+    --muted-foreground: 220 9% 58%;
+
+    --accent: 220 14% 16%;
+    --accent-foreground: 220 14% 93%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 33 90% 52%;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    --info: 217 80% 65%;
+    --info-foreground: 0 0% 100%;
+
+    --chart-1: 33 90% 52%;
+    --chart-2: 142 60% 40%;
+    --chart-3: 217 80% 65%;
+    --chart-4: 270 55% 65%;
+    --chart-5: 0 60% 55%;
+
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 220 14% 85%;
+    --sidebar-primary: 33 90% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 220 14% 85%;
+    --sidebar-border: 220 14% 16%;
+    --sidebar-ring: 33 90% 52%;
+
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.4);
+
+    --gradient-primary: linear-gradient(135deg, hsl(33,90%,52%) 0%, hsl(28,85%,45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220,15%,12%) 0%, hsl(220,15%,11%) 100%);
+    --gradient-background: linear-gradient(180deg, hsl(220,15%,9%) 0%, hsl(220,15%,11%) 100%);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  body {
+    @apply bg-background text-foreground font-montserrat;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat text-balance;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  p { @apply text-pretty; }
+
+  /* Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  *::-webkit-scrollbar { width: 6px; background: transparent; }
+  *::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+}
+
+/* Booking status badge colors */
+.status-not-started { @apply bg-muted text-muted-foreground; }
+.status-pending { @apply bg-warning/10; color: hsl(var(--warning)); }
+.status-booked { @apply bg-success/10; color: hsl(var(--success)); }
+.status-cancelled { @apply bg-destructive/10 text-destructive; }
+.status-completed { @apply bg-info/10; color: hsl(var(--info)); }
