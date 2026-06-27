@@ -23,6 +23,7 @@ test-results
 .env.production
 .env.*
 !.env.example
+historical_context.txt
 
 # Editor directories and files
 .vscode/*
