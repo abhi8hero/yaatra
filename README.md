@@ -18,7 +18,7 @@ This project was built to strengthen understanding of:
 
 
 ## 🚀 Live Demo
-🔗 Live Demo: https://yaatra.vercel.app 
+🔗 Live Demo: https://yaatra.vercel.app                                                     
 🚧 Currently running locally / on vercel
 
 
@@ -73,7 +73,7 @@ This project was built to strengthen understanding of:
    ```
  or
     
-    pnpm install
+        pnpm install
 
 4. Configure environment variables
 
@@ -92,7 +92,7 @@ This project was built to strengthen understanding of:
    ```
  or
     
-    pnpm vite
+        pnpm vite
 
 
 6. Open the application in your browser
