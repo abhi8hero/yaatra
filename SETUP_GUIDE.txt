@@ -1,0 +1,182 @@
+================================================================================
+  YAATRA — INDIA TRAVEL MANAGEMENT ECOSYSTEM
+  Local Development Setup Guide
+================================================================================
+
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+Yaatra is a complete travel management web application built with:
+  • React 18 + TypeScript + Vite
+  • Tailwind CSS + shadcn/ui
+  • Supabase (PostgreSQL + Auth + Storage + Edge Functions)
+  • React Router DOM
+
+2. PREREQUISITES
+--------------------------------------------------------------------------------
+  • Node.js 18+ (with pnpm or npm)
+  • A Supabase account (free tier works)
+  • Git (optional)
+
+3. INSTALL DEPENDENCIES
+--------------------------------------------------------------------------------
+  cd yaatra-project
+  pnpm install       # or: npm install
+
+4. SUPABASE PROJECT SETUP
+--------------------------------------------------------------------------------
+
+Step 4.1 — Create a new Supabase project
+  • Go to https://supabase.com and sign up / log in
+  • Create a new project (name it "yaatra")
+  • Wait for the project to provision (~2 minutes)
+
+Step 4.2 — Get your project credentials
+  In your Supabase project dashboard:
+  • Settings → API
+  • Copy: "Project URL"  →  VITE_SUPABASE_URL
+  • Copy: "anon public"   →  VITE_SUPABASE_ANON_KEY
+
+Step 4.3 — Apply the database schema
+  In Supabase Studio:
+  • SQL Editor → New Query
+  • Open the file:  supabase/migrations/00001_yaatra_core_schema.sql
+  • Paste the entire contents and click "Run"
+  • Repeat for:  supabase/migrations/00002_yaatra_seed_data.sql
+
+  This creates all tables:
+    profiles, destinations, destination_categories,
+    attractions, experiences, festivals, destination_festivals,
+    trips, itineraries, itinerary_items,
+    bookings, expenses, saved_destinations,
+    reviews, notifications, travel_documents,
+    ai_conversations, emergency_contacts, recommendation_scores
+
+Step 4.4 — Enable Row Level Security (RLS) Policies
+  In the SQL Editor, run the following policies (also in the migration file):
+  • profiles: read own, update own, admin read all
+  • destinations: read all (public)
+  • trips, bookings, expenses, saved_destinations, reviews,
+    notifications, travel_documents: read/update/delete own only
+  • admin role can read/update all tables
+
+Step 4.5 — Create Storage Bucket
+  • Storage → New Bucket
+  • Name: "documents"
+  • Public: OFF (documents are private to user)
+  • Set upload policy: authenticated users only, max 10MB
+
+Step 4.6 — (Optional) Deploy Edge Functions
+  If you want AI Travel Assistant to work:
+  • Install Supabase CLI:  npm install -g supabase
+  • Login:  supabase login
+  • Link project:  supabase link --project-ref <your-project-ref>
+  • Deploy:  supabase functions deploy ai-assistant
+  • Set secret:  supabase secrets set GEMINI_API_KEY=your_gemini_key
+
+5. ENVIRONMENT VARIABLES
+--------------------------------------------------------------------------------
+Create a file named  .env  in the project root:
+
+  VITE_SUPABASE_URL=https://your-project.supabase.co
+  VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIs...
+
+Notes:
+  • All VITE_ prefixed variables are exposed to the browser
+  • The ANON_KEY is safe to expose — it is your public client key
+  • Never expose the service_role key
+
+6. RUN THE APP LOCALLY
+--------------------------------------------------------------------------------
+  npx vite           # starts dev server
+
+  The app will be available at:  http://localhost:3000
+
+  Note: The "pnpm dev" / "npm run dev" scripts are disabled in this project.
+        Always use  npx vite  (or  npx vite --port 3000 --host  for LAN access).
+
+7. ADMIN ACCOUNT
+--------------------------------------------------------------------------------
+After seeding, create the admin account in Supabase Auth:
+  • Go to Supabase Studio → Authentication → Users → Add user
+  • Use any real email address (e.g. yaatra_admin@yourdomain.com)
+  • Set a strong password
+  • Then update the profiles table to set role = 'admin' for that user
+
+  Login uses standard email + password — enter the email directly on the sign-in page.
+
+You can log in and access the Admin Panel at /admin
+
+8. SEED DATA INCLUDED
+--------------------------------------------------------------------------------
+The seed migration populates:
+  • 8 Destinations: Jaipur, Goa, Kerala, Varanasi, Manali, Coorg,
+                     Ranthambore, Mumbai (with real images)
+  • 8+ Attractions per destination
+  • 8+ Experiences per destination
+  • 8 Festivals with month ranges
+  • Emergency contacts (national + per destination)
+
+9. FEATURES REFERENCE
+--------------------------------------------------------------------------------
+  • /              — Home (hero, featured, stats, testimonials, CTA)
+  • /explore       — Browse destinations with category & budget filters
+  • /search?q=...  — Global search (destinations, attractions, experiences, festivals)
+  • /destination/:slug  — Detail page with attractions, experiences, festivals, reviews
+  • /planner       — Trip Planner (destination-based or budget-based mode)
+  • /dashboard     — Planning Mode + Travel Companion Mode (signature feature)
+  • /trips/:id     — Trip detail with itinerary, bookings (status tracking), expenses
+  • /wallet        — Travel Wallet (expense tracking)
+  • /documents     — My Documents (upload & manage travel docs)
+  • /emergency     — Emergency Hub (contacts by location)
+  • /transport     — Transportation Hub (bookings & options)
+  • /ai-assistant  — AI Travel Assistant (LLM chat)
+  • /profile       — User profile + Wishlist
+  • /admin         — Admin Panel (user mgmt, destination mgmt, stats)
+
+10. API INTEGRATIONS
+--------------------------------------------------------------------------------
+  Supabase Client:
+    • Auth (standard email + password login and signup)
+    • Database (PostgreSQL via REST auto-generated API)
+    • Storage (document uploads)
+    • Realtime (optional for live updates)
+
+  Optional (for AI Assistant):
+    • Gemini API via Supabase Edge Function
+    • You need a Google AI Studio / Vertex AI API key
+
+11. BUILD FOR PRODUCTION
+--------------------------------------------------------------------------------
+  pnpm build         # or: npm run build
+
+  Output goes to the  dist/  folder.
+  Deploy  dist/  to any static host (Vercel, Netlify, Cloudflare Pages, etc.)
+
+12. TROUBLESHOOTING
+--------------------------------------------------------------------------------
+  Issue: "failed to fetch" on page load
+  Fix:  Check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env
+
+  Issue: "RLS violation" errors
+  Fix:  Ensure you are logged in, or check RLS policies in Supabase
+
+  Issue: Images not loading
+  Fix:  The seed data uses images from miaoda-site-img.s3cdn.medo.dev
+        which are public CDN URLs — no action needed
+
+  Issue: TypeScript errors on build
+  Fix:  Run  npx tsgo -p tsconfig.check.json  to check for type errors
+
+================================================================================
+  CONTACT / SUPPORT
+================================================================================
+This is a self-contained project. For questions about the code structure,
+refer to the files in src/:
+  • src/lib/api.ts                    — All Supabase database operations
+  • src/types/types.ts                — TypeScript interfaces
+  • src/routes.tsx                    — All application routes
+  • src/contexts/AuthContext.tsx      — Authentication logic (email + password)
+  • src/contexts/LanguageContext.tsx  — 9-language i18n system
+  • src/contexts/ThemeContext.tsx     — Light / Dark / System theme
+
+================================================================================

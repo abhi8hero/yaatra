@@ -2,11 +2,10 @@
 
 An AI-powered travel planning platform that helps users create personalized trips, manage itineraries, and receive intelligent travel recommendations.
 
----
 
 ## 📖 About the Project
 
-**Yaatra** is a full-stack travel management platform that simplifies the entire travel planning process. Users can create trips by providing their destination, travel dates, budget, and preferences, while an AI-powered agent generates personalized travel plans, including itineraries, accommodations, transportation, attractions, and estimated expenses.
+**yaatra** is a travel management platform that simplifies the entire travel planning process. Users can create trips by providing their destination, travel dates, budget, and preferences, while an AI-powered agent generates personalized travel plans, including itineraries, accommodations, transportation, attractions, and estimated expenses.
 
 The platform combines modern web technologies with AI automation to deliver a seamless travel planning experience from trip creation to completion.
 
@@ -17,29 +16,20 @@ This project was built to strengthen understanding of:
 - Authentication and database management
 - Scalable application design
 
----
 
 ## 🚀 Live Demo
 🔗 Live Demo: *(Add deployment link here)*  
-🚧 Currently running locally
+🚧 Currently running locally / on vercel
 
----
 
 ## 📸 Screenshots
 
 ### Landing Page
-*(Add landing page screenshot here)*
+![alt text](<Screenshot 2026-06-26 144923.png>)
 
-### Dashboard
-*(Add dashboard screenshot here)*
+### AI Agent
+![alt text](<Screenshot 2026-06-24 191618.png>)
 
-### Trip Planner
-*(Add trip planning interface screenshot here)*
-
-### AI Generated Itinerary
-*(Add itinerary/results screenshot here)*
-
----
 
 ## ✨ Features
 - AI-powered trip planning
@@ -53,41 +43,14 @@ This project was built to strengthen understanding of:
 - Responsive and modern user interface
 - Real-time trip status updates
 
----
 
 ## 🛠️ Tech Stack
-- **React** – Frontend framework
-- **TypeScript** – Type-safe development
-- **Vite** – Build tool
-- **Tailwind CSS** – UI styling
-- **Supabase** – Authentication & Database
 - **n8n** – AI workflow automation
 - **Google Gemini API** – AI-powered trip generation
+- **React** – Frontend framework
+- **TypeScript** – Type-safe development
+- **Supabase** – Authentication & Database
 
----
-
-## 📁 Project Structure
-
-```bash
-├── docs/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   ├── contexts/
-│   ├── integrations/
-│   ├── services/
-│   ├── lib/
-│   └── types/
-├── public/
-├── package.json
-├── vite.config.ts
-├── tsconfig.json
-├── README.md
-└── ...
-```
-
----
 
 ## 🚀 How to Run Locally
 
@@ -108,6 +71,9 @@ This project was built to strengthen understanding of:
    ```bash
    npm install
    ```
+ or
+    
+    pnpm install
 
 4. Configure environment variables
 
@@ -124,9 +90,14 @@ This project was built to strengthen understanding of:
    ```bash
    npm run dev
    ```
+ or
+    
+    pnpm vite
+
 
 6. Open the application in your browser
 
+For detailed local development use [Local Setup](SETUP_GUIDE.txt).
 
 ## 🔮 Future Enhancements
 - AI chat-based travel assistant
@@ -137,6 +108,9 @@ This project was built to strengthen understanding of:
 - Offline itinerary access
 - Travel document management
 - Emergency assistance and safety alerts
+
+
+For future enhancement go through  [Reqirements Document](Requirements.md).
 
 
 ## 👨‍💻 Designed By
