@@ -119,7 +119,7 @@ export default function TripPlannerPage() {
 
       try {
         const response = await fetch(
-          "https://herooooooooooo.app.n8n.cloud/webhook/yaatra-trip-creation",
+          import.meta.env.VITE_N8N_TRIP_CREATION_WEBHOOK,
           {
             method: "POST",
             headers: {
