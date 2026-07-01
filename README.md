@@ -18,7 +18,7 @@ This project was built to strengthen understanding of:
 
 
 ## 🚀 Live Demo
-🔗 Live Demo: https://yaatra.vercel.app                                                     
+🔗 Live Demo: https://yaatra-plan.vercel.app                                                 
 🚧 Currently running locally / on vercel
 
 
