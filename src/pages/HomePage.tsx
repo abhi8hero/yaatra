@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+{/*import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MainLayout from '@/components/layouts/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -65,9 +65,9 @@ export default function HomePage() {
   };
 
   return (
-    <MainLayout showSidebar={false}>
+    <MainLayout showSidebar={false}>*/}
       {/* Hero */}
-      <section className="relative bg-background">
+      {/*<section className="relative bg-background">
         <div className="max-w-4xl mx-auto px-4 md:px-6 py-20 md:py-32 text-center space-y-8">
           <div className="inline-flex items-center gap-2 border border-border rounded-full px-4 py-1.5 text-xs text-muted-foreground mb-2">
             <Compass className="h-3.5 w-3.5 text-primary" />
@@ -80,10 +80,10 @@ export default function HomePage() {
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto text-pretty">
             From the Himalayas to the backwaters — Yaatra creates personalised travel plans,
             manages your budget, and guides you every step of the way.
-          </p>
+          </p>*/}
 
           {/* Search bar */}
-          <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 max-w-xl mx-auto mt-6">
+          {/*<form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 max-w-xl mx-auto mt-6">
             <div className="flex-1 flex items-center border border-border rounded-md px-4 h-12 focus-within:border-primary transition-colors bg-background">
               <Search className="h-4 w-4 text-muted-foreground mr-3 shrink-0" />
               <input
@@ -97,10 +97,10 @@ export default function HomePage() {
             <Button type="submit" className="h-12 px-6">
               Explore <ArrowRight className="h-4 w-4 ml-2" />
             </Button>
-          </form>
+          </form>*/}
 
           {/* Category quick filters */}
-          <div className="flex flex-wrap justify-center gap-2 pt-2">
+          {/*<div className="flex flex-wrap justify-center gap-2 pt-2">
             {CATEGORY_BADGES.map(c => (
               <button
                 key={c.label}
@@ -114,10 +114,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="border-t border-border" />
+      <div className="border-t border-border" />*/}
 
       {/* Featured Destinations */}
-      <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      {/*<section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="flex items-end justify-between mb-10">
           <div className="space-y-1">
             <h2 className="text-2xl md:text-3xl font-semibold text-balance">Featured destinations</h2>
@@ -181,10 +181,10 @@ export default function HomePage() {
         )}
       </section>
 
-      <div className="border-t border-border" />
+      <div className="border-t border-border" />*/}
 
       {/* How it works */}
-      <section className="max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      {/*<section className="max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center space-y-2 mb-14">
           <h2 className="text-2xl md:text-3xl font-semibold text-balance">How Yaatra works</h2>
           <p className="text-muted-foreground text-sm text-pretty">Three steps to your perfect Indian journey.</p>
@@ -205,10 +205,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="border-t border-border" />
+      <div className="border-t border-border" />*/}
 
       {/* Stats strip */}
-      <section className="bg-secondary">
+      {/*<section className="bg-secondary">
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
             { label: 'Destinations', value: '200+' },
@@ -224,10 +224,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="border-t border-border" />
+      <div className="border-t border-border" />*/}
 
       {/* Testimonials */}
-      <section className="max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      {/*<section className="max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="text-center space-y-2 mb-14">
           <h2 className="text-2xl md:text-3xl font-semibold text-balance">What travellers say</h2>
         </div>
@@ -249,10 +249,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="border-t border-border" />
+      <div className="border-t border-border" />*/}
 
       {/* CTA */}
-      <section className="max-w-3xl mx-auto px-4 md:px-6 py-20 md:py-28 text-center space-y-6">
+      {/*<section className="max-w-3xl mx-auto px-4 md:px-6 py-20 md:py-28 text-center space-y-6">
         <h2 className="text-3xl md:text-4xl font-semibold text-balance">Ready to explore India?</h2>
         <p className="text-muted-foreground text-pretty">
           Join thousands of travellers who plan smarter with Yaatra's intelligent travel ecosystem.
@@ -261,10 +261,10 @@ export default function HomePage() {
           <Link to="/register"><Button size="lg" className="px-8">Start planning — it's free</Button></Link>
           <Link to="/explore"><Button variant="outline" size="lg" className="px-8">Browse destinations</Button></Link>
         </div>
-      </section>
+      </section>*/}
 
       {/* Footer */}
-      <footer className="border-t border-border bg-secondary">
+      {/*<footer className="border-t border-border bg-secondary">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Compass className="h-4 w-4 text-primary" strokeWidth={1.5} />
@@ -281,5 +281,40 @@ export default function HomePage() {
         </div>
       </footer>
     </MainLayout>
+  );
+}*/}
+
+
+import { Settings } from 'lucide-react';
+
+export default function YaatraUnavailablePage() {
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="w-full max-w-md text-center space-y-8">
+
+        <div className="space-y-4">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted animate-pulse">
+            <Settings
+              className="h-8 w-8 text-primary animate-spin"
+              strokeWidth={1.5}
+              style={{ animationDuration: '4s' }}
+            />
+          </div>
+
+          <h1 className="text-2xl font-semibold">
+            Yaatra is Temporarily Unavailable
+          </h1>
+
+          <p className="text-sm text-muted-foreground leading-6">
+            Yaatra is currently unavailable due to ongoing maintenance
+            <br />
+            and improvements.
+            <br />
+            Our team is working to restore the service as soon as possible.
+          </p>
+        </div>
+
+      </div>
+    </div>
   );
 }

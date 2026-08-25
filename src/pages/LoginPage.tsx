@@ -1,4 +1,4 @@
-import { useState } from 'react';
+{/*import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -33,7 +33,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left decorative panel */}
-      <div className="hidden md:flex md:w-1/2 bg-secondary flex-col justify-between p-12">
+      {/*<div className="hidden md:flex md:w-1/2 bg-secondary flex-col justify-between p-12">
         <Link to="/" className="flex items-center gap-2">
           <Compass className="h-6 w-6 text-primary" strokeWidth={1.5} />
           <span className="font-semibold text-lg tracking-tight">yaatra</span>
@@ -47,10 +47,10 @@ export default function LoginPage() {
           </p>
         </div>
         <p className="text-xs text-muted-foreground">© Yaatra. Promoting Indian Tourism.</p>
-      </div>
+      </div>*/}
 
       {/* Right form panel */}
-      <div className="flex-1 flex items-center justify-center p-8">
+      {/*<div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-sm space-y-8">
           <div className="md:hidden flex items-center gap-2 mb-4">
             <Compass className="h-5 w-5 text-primary" strokeWidth={1.5} />
@@ -131,6 +131,42 @@ export default function LoginPage() {
             </Link>
           </p>
         </div>
+      </div>
+    </div>
+  );
+}
+*/}
+
+
+import { Settings } from 'lucide-react';
+
+export default function YaatraUnavailablePage() {
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="w-full max-w-md text-center space-y-8">
+
+        <div className="space-y-4">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted animate-pulse">
+            <Settings
+              className="h-8 w-8 text-primary animate-spin"
+              strokeWidth={1.5}
+              style={{ animationDuration: '4s' }}
+            />
+          </div>
+
+          <h1 className="text-2xl font-semibold">
+            Yaatra is Temporarily Unavailable
+          </h1>
+
+          <p className="text-sm text-muted-foreground leading-6">
+            Yaatra is currently unavailable due to ongoing maintenance
+            <br />
+            and improvements.
+            <br />
+            Our team is working to restore the service as soon as possible.
+          </p>
+        </div>
+
       </div>
     </div>
   );
